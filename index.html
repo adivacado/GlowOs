@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <meta
+    name="description"
+    content="A personalized glow-up planner for skincare, haircare, bodycare and wellness."
+  />
+  <title>Glow Garden ✦ Your Personal Glow-Up Planner</title>
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+
+<body data-theme="rose">
+
+  <!-- Decorative background -->
+  <div class="background-decoration" aria-hidden="true">
+    <span class="sparkle sparkle-1">✦</span>
+    <span class="sparkle sparkle-2">✧</span>
+    <span class="sparkle sparkle-3">⋆</span>
+    <span class="sparkle sparkle-4">✦</span>
+    <span class="sparkle sparkle-5">✧</span>
+
+    <div class="blob blob-one"></div>
+    <div class="blob blob-two"></div>
+    <div class="blob blob-three"></div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <button
+      class="brand"
+      id="brandHomeBtn"
+      type="button"
+      aria-label="Go to home"
+    >
+      <span class="brand-symbol">✦</span>
+      <span>
+        <strong>Glow Garden</strong>
+        <small>your little ritual journal</small>
+      </span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <button class="nav-btn active" type="button" data-screen="homeScreen">
+        Home
+      </button>
+
+      <button class="nav-btn" type="button" data-screen="todayScreen">
+        Today
+      </button>
+
+      <button class="nav-btn" type="button" data-screen="skinScreen">
+        Skin
+      </button>
+
+      <button class="nav-btn" type="button" data-screen="hairScreen">
+        Hair
+      </button>
+
+      <button class="nav-btn" type="button" data-screen="bodyScreen">
+        Body
+      </button>
+
+      <button class="nav-btn" type="button" data-screen="plannerScreen">
+        Planner
+      </button>
+
+      <button class="nav-btn" type="button" data-screen="profileScreen">
+        Me
+      </button>
+    </nav>
+
+    <button
+      class="header-theme-btn"
+      id="headerThemeBtn"
+      type="button"
+      aria-label="Change theme"
+      title="Change theme"
+    >
+      ☾
+    </button>
+  </header>
+
+
+  <main>
+
+    <!-- =========================================================
+         HOME
+    ========================================================== -->
+    <section id="homeScreen" class="screen active">
+
+      <div class="home-shell">
+
+        <div class="home-hero">
+
+          <div class="hero-copy">
+
+            <div class="eyebrow">
+              <span>✦</span>
+              a softer way to glow
+              <span>✦</span>
+            </div>
+
+            <h1>
+              Romanticize
+              <span>taking care</span>
+              of yourself.
+            </h1>
+
+            <p class="hero-text">
+              Your skincare, haircare, bodycare and wellness rituals —
+              turned into one tiny personalized glow-up journal.
+            </p>
+
+            <div class="hero-actions">
+
+              <button
+                id="startBtn"
+                class="primary-btn big-btn"
+                type="button"
+              >
+                Create My Glow Plan
+                <span>✦</span>
+              </button>
+
+              <button
+                id="exploreBtn"
+                class="soft-btn"
+                type="button"
+              >
+                Explore the garden
+              </button>
+
+            </div>
+
+            <div class="tiny-note">
+              <span>♡</span>
+              no account · saved privately in your browser
+            </div>
+
+          </div>
+
+
+          <!-- Interactive journal -->
+          <div class="hero-journal">
+
+            <div class="journal-ribbon">TODAY'S LITTLE NOTE</div>
+
+            <div class="journal-card">
+
+              <div class="journal-top">
+                <span>September</span>
+                <span>✦</span>
+              </div>
+
+              <div class="journal-date">
+                <strong id="homeDay">04</strong>
+                <div>
+                  <span id="homeMonth">September</span>
+                  <small id="homeWeekday">Friday</small>
+                </div>
+              </div>
+
+              <div class="journal-divider">✧ ───────── ✧</div>
+
+              <p id="affirmationText">
+                You don't have to become someone new.
+                You get to take care of the person you already are.
+              </p>
+
+              <button
+                id="newAffirmationBtn"
+                class="journal-btn"
+                type="button"
+              >
+                another little thought ✦
+              </button>
+
+              <div class="journal-stickers">
+                <span>♡</span>
+                <span>✿</span>
+                <span>☾</span>
+                <span>✧</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Interactive mini features -->
+        <div id="gardenFeatures" class="garden-features">
+
+          <button class="feature-card feature-skin" type="button" data-preview="skin">
+            <span class="feature-icon">☽</span>
+            <span class="feature-title">Skin Rituals</span>
+            <span class="feature-description">
+              gentle routines made around your skin
+            </span>
+            <span class="feature-arrow">→</span>
+          </button>
+
+          <button class="feature-card feature-hair" type="button" data-preview="hair">
+            <span class="feature-icon">❀</span>
+            <span class="feature-title">Hair Rituals</span>
+            <span class="feature-description">
+              wash days, treatments & DIY care
+            </span>
+            <span class="feature-arrow">→</span>
+          </button>
+
+          <button class="feature-card feature-body" type="button" data-preview="body">
+            <span class="feature-icon">♡</span>
+            <span class="feature-title">Body & Wellness</span>
+            <span class="feature-description">
+              movement, bodycare & little resets
+            </span>
+            <span class="feature-arrow">→</span>
+          </button>
+
+          <button class="feature-card feature-diy" type="button" data-preview="diy">
+            <span class="feature-icon">✦</span>
+            <span class="feature-title">DIY Corner</span>
+            <span class="feature-description">
+              masks, mists, scrubs & simple rituals
+            </span>
+            <span class="feature-arrow">→</span>
+          </button>
+
+        </div>
+
+
+        <!-- Home preview drawer -->
+        <div id="homePreview" class="home-preview hidden">
+
+          <div class="preview-inner">
+
+            <div>
+              <span id="previewIcon" class="preview-icon">✦</span>
+            </div>
+
+            <div>
+              <span id="previewLabel" class="preview-label">
+                your little corner
+              </span>
+
+              <h3 id="previewTitle">A personalized ritual awaits.</h3>
+
+              <p id="previewText">
+                Tell Glow Garden a little about yourself and it will
+                build your routine around you.
+              </p>
+            </div>
+
+            <button
+              id="previewStartBtn"
+              class="primary-btn"
+              type="button"
+            >
+              Let's make mine ✦
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Glow meter -->
+        <div class="glow-meter-section">
+
+          <div class="section-heading centered">
+            <span class="little-label">before we begin</span>
+            <h2>How glowy are you feeling today?</h2>
+            <p>
+              There is no wrong answer. This is about caring for yourself,
+              not grading yourself.
+            </p>
+          </div>
+
+          <div class="mood-buttons" id="moodButtons">
+
+            <button type="button" data-mood="1">
+              <span>☁</span>
+              <small>need rest</small>
+            </button>
+
+            <button type="button" data-mood="2">
+              <span>☾</span>
+              <small>a little tired</small>
+            </button>
+
+            <button type="button" data-mood="3">
+              <span>✿</span>
+              <small>okay-ish</small>
+            </button>
+
+            <button type="button" data-mood="4">
+              <span>✦</span>
+              <small>feeling cute</small>
+            </button>
+
+            <button type="button" data-mood="5">
+              <span>✨</span>
+              <small>sparkling</small>
+            </button>
+
+          </div>
+
+          <p id="moodMessage" class="mood-message">
+            Whatever today feels like, your routine can meet you there. ♡
+          </p>
+
+        </div>
+
+
+        <!-- Why section -->
+        <div class="why-section">
+
+          <div class="section-heading">
+            <span class="little-label">the philosophy</span>
+            <h2>Less pressure.<br />More ritual.</h2>
+          </div>
+
+          <div class="philosophy-grid">
+
+            <article>
+              <span>01</span>
+              <h3>Personal</h3>
+              <p>
+                Your skin, hair, budget, lifestyle and existing products
+                shape the plan.
+              </p>
+            </article>
+
+            <article>
+              <span>02</span>
+              <h3>Practical</h3>
+              <p>
+                Products are selected around your actual budget instead
+                of filling a shopping basket for no reason.
+              </p>
+            </article>
+
+            <article>
+              <span>03</span>
+              <h3>Gentle</h3>
+              <p>
+                DIY recipes focus on simple ingredients and clear safety
+                instructions instead of internet beauty myths.
+              </p>
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SETUP WIZARD
+    ========================================================== -->
+    <section id="setupScreen" class="screen">
+
+      <div class="setup-shell">
+
+        <div class="setup-heading">
+          <span class="little-label">chapter one</span>
+          <h2>Let's make this little garden yours.</h2>
+          <p>
+            A few questions help us build something that actually fits you.
+          </p>
+        </div>
+
+        <div class="wizard-card">
+
+          <div class="wizard-progress">
+
+            <div class="wizard-progress-top">
+              <span id="wizardProgressLabel">01 / 05</span>
+              <span id="wizardProgressTitle">About you</span>
+            </div>
+
+            <div class="progress-track">
+              <div id="wizardProgressBar" class="progress-fill"></div>
+            </div>
+
+          </div>
+
+
+          <form id="profileForm" novalidate>
+
+            <!-- STEP 1 -->
+            <div class="wizard-step active" data-step="1">
+
+              <div class="step-title">
+                <span>✦</span>
+                <div>
+                  <small>first, hello</small>
+                  <h3>Tell me about you</h3>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="nameInput">What should we call you?</label>
+                <input
+                  id="nameInput"
+                  name="name"
+                  type="text"
+                  maxlength="40"
+                  placeholder="Your name or nickname"
+                  autocomplete="name"
+                />
+              </div>
+
+              <div class="form-group">
+
+                <label>
+                  What would you like help with?
+                </label>
+
+                <div class="choice-grid four">
+
+                  <label class="choice-card">
+                    <input
+                      type="checkbox"
+                      name="category"
+                      value="skin"
+                      checked
+                    />
+                    <span>☽</span>
+                    <strong>Skin</strong>
+                    <small>face & skincare</small>
+                  </label>
+
+                  <label class="choice-card">
+                    <input
+                      type="checkbox"
+                      name="category"
+                      value="hair"
+                      checked
+                    />
+                    <span>❀</span>
+                    <strong>Hair</strong>
+                    <small>hair & scalp</small>
+                  </label>
+
+                  <label class="choice-card">
+                    <input
+                      type="checkbox"
+                      name="category"
+                      value="body"
+                      checked
+                    />
+                    <span>♡</span>
+                    <strong>Body</strong>
+                    <small>bodycare</small>
+                  </label>
+
+                  <label class="choice-card">
+                    <input
+                      type="checkbox"
+                      name="category"
+                      value="wellness"
+                      checked
+                    />
+                    <span>✦</span>
+                    <strong>Wellness</strong>
+                    <small>movement & rest</small>
+                  </label>
+
+                </div>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label for="budgetInput">
+                  Monthly beauty/wellness budget
+                </label>
+
+                <div class="input-with-prefix">
+                  <span>₹</span>
+                  <input
+                    id="budgetInput"
+                    name="budget"
+                    type="number"
+                    min="0"
+                    step="50"
+                    value="500"
+                    placeholder="500"
+                  />
+                </div>
+
+                <small class="helper">
+                  Enter 0 if you want a completely DIY / use-what-you-own plan.
+                </small>
+
+              </div>
+
+
+              <div class="form-group">
+
+                <label>
+                  What do you already own?
+                </label>
+
+                <div class="owned-grid">
+
+                  <label>
+                    <input type="checkbox" name="owned" value="cleanser" />
+                    <span>Cleanser</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="owned" value="moisturizer" />
+                    <span>Moisturizer</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="owned" value="sunscreen" />
+                    <span>Sunscreen</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="owned" value="shampoo" />
+                    <span>Shampoo</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="owned" value="conditioner" />
+                    <span>Conditioner</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="owned" value="hairOil" />
+                    <span>Hair oil</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="owned" value="bodyWash" />
+                    <span>Body wash</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="owned" value="bodyMoisturizer" />
+                    <span>Body moisturizer</span>
+                  </label>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+            <div class="wizard-step" data-step="2">
+
+              <div class="step-title">
+                <span>☽</span>
+                <div>
+                  <small>your skin diary</small>
+                  <h3>Let's understand your skin</h3>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Skin type</label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="skinType" value="dry" checked /><span>Dry</span></label>
+                  <label><input type="radio" name="skinType" value="normal" /><span>Normal</span></label>
+                  <label><input type="radio" name="skinType" value="combination" /><span>Combination</span></label>
+                  <label><input type="radio" name="skinType" value="oily" /><span>Oily</span></label>
+                  <label><input type="radio" name="skinType" value="sensitive" /><span>Sensitive</span></label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>How sensitive does your skin feel?</label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="skinSensitivity" value="low" checked /><span>Not very</span></label>
+                  <label><input type="radio" name="skinSensitivity" value="medium" /><span>Sometimes</span></label>
+                  <label><input type="radio" name="skinSensitivity" value="high" /><span>Very sensitive</span></label>
+                </div>
+              </div>
+
+              <div class="form-group">
+
+                <label>
+                  What would you like to focus on?
+                </label>
+
+                <div class="concern-grid">
+
+                  <label>
+                    <input type="checkbox" name="skinConcern" value="acne" />
+                    <span>Acne / breakouts</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="skinConcern" value="darkSpots" />
+                    <span>Dark spots</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="skinConcern" value="dullness" />
+                    <span>Dullness</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="skinConcern" value="dryness" />
+                    <span>Dryness</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="skinConcern" value="oiliness" />
+                    <span>Oiliness / pores</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="skinConcern" value="redness" />
+                    <span>Redness / sensitivity</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="skinConcern" value="texture" />
+                    <span>Uneven texture</span>
+                  </label>
+
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label>Climate where you live</label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="climate" value="humid" checked /><span>Humid</span></label>
+                  <label><input type="radio" name="climate" value="dry" /><span>Dry</span></label>
+                  <label><input type="radio" name="climate" value="hot" /><span>Hot</span></label>
+                  <label><input type="radio" name="climate" value="cold" /><span>Cold</span></label>
+                  <label><input type="radio" name="climate" value="mixed" /><span>Mixed</span></label>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label>Daily sun exposure</label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="sun" value="low" /><span>Mostly indoors</span></label>
+                  <label><input type="radio" name="sun" value="medium" checked /><span>Some outdoor time</span></label>
+                  <label><input type="radio" name="sun" value="high" /><span>A lot outdoors</span></label>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+            <div class="wizard-step" data-step="3">
+
+              <div class="step-title">
+                <span>❀</span>
+                <div>
+                  <small>hair journal</small>
+                  <h3>Tell me about your hair</h3>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Hair texture</label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="hairTexture" value="straight" checked /><span>Straight</span></label>
+                  <label><input type="radio" name="hairTexture" value="wavy" /><span>Wavy</span></label>
+                  <label><input type="radio" name="hairTexture" value="curly" /><span>Curly</span></label>
+                  <label><input type="radio" name="hairTexture" value="coily" /><span>Coily</span></label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Scalp type</label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="scalpType" value="dry" /><span>Dry</span></label>
+                  <label><input type="radio" name="scalpType" value="normal" checked /><span>Normal</span></label>
+                  <label><input type="radio" name="scalpType" value="oily" /><span>Oily</span></label>
+                  <label><input type="radio" name="scalpType" value="sensitive" /><span>Sensitive</span></label>
+                </div>
+              </div>
+
+              <div class="form-group">
+
+                <label>Hair / scalp concerns</label>
+
+                <div class="concern-grid">
+
+                  <label>
+                    <input type="checkbox" name="hairConcern" value="frizz" />
+                    <span>Frizz</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="hairConcern" value="dryness" />
+                    <span>Dryness</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="hairConcern" value="breakage" />
+                    <span>Breakage</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="hairConcern" value="dandruff" />
+                    <span>Flaking / dandruff</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="hairConcern" value="oilyScalp" />
+                    <span>Oily scalp</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="hairConcern" value="dullness" />
+                    <span>Dull hair</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="hairConcern" value="thinning" />
+                    <span>Hair fall / thinning</span>
+                  </label>
+
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label>How often do you wash your hair?</label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="washFrequency" value="1" /><span>Once weekly</span></label>
+                  <label><input type="radio" name="washFrequency" value="2" checked /><span>2× weekly</span></label>
+                  <label><input type="radio" name="washFrequency" value="3" /><span>3× weekly</span></label>
+                  <label><input type="radio" name="washFrequency" value="4" /><span>4+× weekly</span></label>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label>Hair porosity <small>(optional)</small></label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="porosity" value="low" /><span>Low</span></label>
+                  <label><input type="radio" name="porosity" value="medium" checked /><span>Medium</span></label>
+                  <label><input type="radio" name="porosity" value="high" /><span>High</span></label>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- STEP 4 -->
+            <div class="wizard-step" data-step="4">
+
+              <div class="step-title">
+                <span>♡</span>
+                <div>
+                  <small>body & soul</small>
+                  <h3>Let's make wellness realistic</h3>
+                </div>
+              </div>
+
+              <div class="form-group">
+
+                <label>Body skin type</label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="bodyType" value="dry" checked /><span>Dry</span></label>
+                  <label><input type="radio" name="bodyType" value="normal" /><span>Normal</span></label>
+                  <label><input type="radio" name="bodyType" value="sensitive" /><span>Sensitive</span></label>
+                  <label><input type="radio" name="bodyType" value="oily" /><span>Oilier</span></label>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label>Body concerns</label>
+
+                <div class="concern-grid">
+
+                  <label>
+                    <input type="checkbox" name="bodyConcern" value="dryness" />
+                    <span>Dryness</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="bodyConcern" value="rough" />
+                    <span>Rough texture</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="bodyConcern" value="bodyAcne" />
+                    <span>Body breakouts</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="bodyConcern" value="unevenTone" />
+                    <span>Uneven tone</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="bodyConcern" value="ingrowns" />
+                    <span>Ingrowns</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="bodyConcern" value="sensitivity" />
+                    <span>Sensitivity</span>
+                  </label>
+
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label>Wellness goals</label>
+
+                <div class="concern-grid">
+
+                  <label>
+                    <input type="checkbox" name="wellnessGoal" value="strength" />
+                    <span>Strength</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="wellnessGoal" value="mobility" />
+                    <span>Mobility</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="wellnessGoal" value="energy" checked />
+                    <span>Energy</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="wellnessGoal" value="relaxation" />
+                    <span>Relaxation</span>
+                  </label>
+
+                  <label>
+                    <input type="checkbox" name="wellnessGoal" value="consistency" />
+                    <span>Consistency</span>
+                  </label>
+
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label>How much time can you realistically give yourself?</label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="minutes" value="5" /><span>5 min</span></label>
+                  <label><input type="radio" name="minutes" value="10" checked /><span>10 min</span></label>
+                  <label><input type="radio" name="minutes" value="20" /><span>20 min</span></label>
+                  <label><input type="radio" name="minutes" value="30" /><span>30+ min</span></label>
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label>Daily meditation / quiet time</label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="meditation" value="0" checked /><span>None</span></label>
+                  <label><input type="radio" name="meditation" value="5" /><span>5 min</span></label>
+                  <label><input type="radio" name="meditation" value="10" /><span>10 min</span></label>
+                  <label><input type="radio" name="meditation" value="15" /><span>15+ min</span></label>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- STEP 5 -->
+            <div class="wizard-step" data-step="5">
+
+              <div class="step-title">
+                <span>✦</span>
+                <div>
+                  <small>the finishing touches</small>
+                  <h3>How should your routine feel?</h3>
+                </div>
+              </div>
+
+              <div class="form-group">
+
+                <label>Routine intensity</label>
+
+                <div class="intensity-grid">
+
+                  <label>
+                    <input type="radio" name="intensity" value="minimal" />
+                    <span>minimal</span>
+                    <small>tiny rituals, low effort</small>
+                  </label>
+
+                  <label>
+                    <input type="radio" name="intensity" value="balanced" checked />
+                    <span>balanced</span>
+                    <small>enough to feel cared for</small>
+                  </label>
+
+                  <label>
+                    <input type="radio" name="intensity" value="detailed" />
+                    <span>detailed</span>
+                    <small>I love a whole ritual</small>
+                  </label>
+
+                </div>
+
+              </div>
+
+              <div class="form-group">
+
+                <label>Fragrance preference</label>
+
+                <div class="pill-grid">
+                  <label><input type="radio" name="fragrance" value="any" checked /><span>I don't mind</span></label>
+                  <label><input type="radio" name="fragrance" value="fragranceFree" /><span>Prefer fragrance-free</span></label>
+                </div>
+
+              </div>
+
+              <div class="finish-note">
+                <span>✧</span>
+                <div>
+                  <strong>Your plan will be built around you.</strong>
+                  <p>
+                    We'll use your existing products first, keep purchases
+                    inside your budget, and add DIY alternatives where
+                    they're useful.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="wizard-actions">
+
+              <button
+                id="prevBtn"
+                class="soft-btn"
+                type="button"
+              >
+                ← Back
+              </button>
+
+              <button
+                id="nextBtn"
+                class="primary-btn"
+                type="button"
+              >
+                Continue →
+              </button>
+
+              <button
+                id="finishBtn"
+                class="primary-btn hidden"
+                type="submit"
+              >
+                Build My Glow Plan ✦
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         TODAY
+    ========================================================== -->
+    <section id="todayScreen" class="screen">
+
+      <div class="page-shell">
+
+        <div class="dashboard-heading">
+
+          <div>
+            <span class="little-label">your garden · today</span>
+            <h2 id="greetingTitle">Hello, lovely.</h2>
+            <p id="todayDateText"></p>
+          </div>
+
+          <button
+            id="rebuildBtn"
+            class="soft-btn"
+            type="button"
+          >
+            Rebuild plan
+          </button>
+
+        </div>
+
+
+        <div class="dashboard-grid">
+
+          <div class="main-column">
+
+            <div class="daily-progress-card">
+
+              <div>
+                <span class="little-label">today's glow</span>
+                <h3 id="todayProgressText">0% complete</h3>
+              </div>
+
+              <div class="big-progress">
+                <div id="todayProgressBar"></div>
+              </div>
+
+              <p id="todayProgressSub">
+                Tiny steps count.
+              </p>
+
+            </div>
+
+
+            <div class="content-card">
+
+              <div class="card-heading">
+                <div>
+                  <span class="little-label">your ritual</span>
+                  <h3>Today's little checklist</h3>
+                </div>
+
+                <span class="heading-decoration">✦</span>
+              </div>
+
+              <div id="todayRoutineList" class="routine-list"></div>
+
+            </div>
+
+
+            <div class="content-card">
+
+              <div class="card-heading">
+                <div>
+                  <span class="little-label">something homemade</span>
+                  <h3>Today's DIY idea</h3>
+                </div>
+              </div>
+
+              <div id="todayDiyCard"></div>
+
+            </div>
+
+          </div>
+
+
+          <aside class="side-column">
+
+            <div class="profile-mini-card">
+
+              <div class="mini-avatar" id="miniAvatar">✿</div>
+
+              <span class="little-label">your glow profile</span>
+
+              <h3 id="miniName">You</h3>
+
+              <div id="miniTags" class="tag-list"></div>
+
+              <button
+                id="miniEditBtn"
+                class="text-btn"
+                type="button"
+              >
+                edit profile →
+              </button>
+
+            </div>
+
+
+            <div class="basket-card">
+
+              <div class="card-heading">
+                <div>
+                  <span class="little-label">your budget</span>
+                  <h3>Glow basket</h3>
+                </div>
+
+                <span>🛍️</span>
+              </div>
+
+              <div class="budget-number">
+                ₹<span id="basketTotal">0</span>
+                <small>/ ₹<span id="basketBudget">0</span></small>
+              </div>
+
+              <div class="budget-track">
+                <div id="budgetBar"></div>
+              </div>
+
+              <div id="basketItems" class="basket-items"></div>
+
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SKIN
+    ========================================================== -->
+    <section id="skinScreen" class="screen">
+
+      <div class="page-shell">
+
+        <div class="section-page-heading">
+          <span class="little-label">chapter · skin</span>
+          <h2>Your skin ritual.</h2>
+          <p id="skinIntro">
+            Personalized around your skin profile.
+          </p>
+        </div>
+
+        <div id="skinSummary" class="personal-summary"></div>
+
+        <div class="two-column-content">
+
+          <div class="content-card">
+
+            <div class="card-heading">
+              <div>
+                <span class="little-label">morning</span>
+                <h3>AM ritual ☀</h3>
+              </div>
+            </div>
+
+            <div id="skinMorning" class="routine-list"></div>
+
+          </div>
+
+          <div class="content-card">
+
+            <div class="card-heading">
+              <div>
+                <span class="little-label">evening</span>
+                <h3>PM ritual ☾</h3>
+              </div>
+            </div>
+
+            <div id="skinEvening" class="routine-list"></div>
+
+          </div>
+
+        </div>
+
+
+        <div class="content-card large-card">
+
+          <div class="card-heading">
+
+            <div>
+              <span class="little-label">beauty shelf</span>
+              <h3>Personalized product picks</h3>
+            </div>
+
+            <span class="heading-decoration">✧</span>
+
+          </div>
+
+          <div id="skinProducts" class="product-grid"></div>
+
+        </div>
+
+
+        <div class="content-card large-card">
+
+          <div class="card-heading">
+
+            <div>
+              <span class="little-label">from your kitchen / cupboard</span>
+              <h3>DIY skin rituals</h3>
+            </div>
+
+            <span>🥣</span>
+
+          </div>
+
+          <div id="skinDiyGrid" class="diy-grid"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         HAIR
+    ========================================================== -->
+    <section id="hairScreen" class="screen">
+
+      <div class="page-shell">
+
+        <div class="section-page-heading">
+          <span class="little-label">chapter · hair</span>
+          <h2>Your hair diary.</h2>
+          <p id="hairIntro">
+            Built around your texture, scalp and concerns.
+          </p>
+        </div>
+
+        <div id="hairSummary" class="personal-summary"></div>
+
+        <div class="content-card large-card">
+
+          <div class="card-heading">
+            <div>
+              <span class="little-label">this week</span>
+              <h3>Hair rhythm</h3>
+            </div>
+          </div>
+
+          <div id="hairSchedule" class="hair-schedule"></div>
+
+        </div>
+
+
+        <div class="content-card large-card">
+
+          <div class="card-heading">
+            <div>
+              <span class="little-label">beauty shelf</span>
+              <h3>Personalized product picks</h3>
+            </div>
+          </div>
+
+          <div id="hairProducts" class="product-grid"></div>
+
+        </div>
+
+
+        <div class="content-card large-card">
+
+          <div class="card-heading">
+            <div>
+              <span class="little-label">slow beauty</span>
+              <h3>DIY hair rituals</h3>
+            </div>
+
+            <span>❀</span>
+          </div>
+
+          <div id="hairDiyGrid" class="diy-grid"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         BODY
+    ========================================================== -->
+    <section id="bodyScreen" class="screen">
+
+      <div class="page-shell">
+
+        <div class="section-page-heading">
+          <span class="little-label">chapter · body & wellness</span>
+          <h2>Care for the whole you.</h2>
+          <p>
+            Bodycare, movement, quiet moments and tiny rituals.
+          </p>
+        </div>
+
+        <div id="bodySummary" class="personal-summary"></div>
+
+
+        <div class="two-column-content">
+
+          <div class="content-card">
+
+            <div class="card-heading">
+              <div>
+                <span class="little-label">bodycare</span>
+                <h3>Your body ritual</h3>
+              </div>
+            </div>
+
+            <div id="bodyRoutine" class="routine-list"></div>
+
+          </div>
+
+
+          <div class="content-card">
+
+            <div class="card-heading">
+              <div>
+                <span class="little-label">wellness</span>
+                <h3>Move & breathe</h3>
+              </div>
+            </div>
+
+            <div id="wellnessRoutine" class="routine-list"></div>
+
+          </div>
+
+        </div>
+
+
+        <div class="content-card large-card">
+
+          <div class="card-heading">
+            <div>
+              <span class="little-label">beauty shelf</span>
+              <h3>Bodycare product picks</h3>
+            </div>
+          </div>
+
+          <div id="bodyProducts" class="product-grid"></div>
+
+        </div>
+
+
+        <div class="content-card large-card">
+
+          <div class="card-heading">
+            <div>
+              <span class="little-label">little homemade luxuries</span>
+              <h3>DIY body rituals</h3>
+            </div>
+          </div>
+
+          <div id="bodyDiyGrid" class="diy-grid"></div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PLANNER
+    ========================================================== -->
+    <section id="plannerScreen" class="screen">
+
+      <div class="page-shell">
+
+        <div class="section-page-heading planner-heading">
+
+          <div>
+            <span class="little-label">chapter · weekly planner</span>
+            <h2>Your week, softly planned.</h2>
+            <p>
+              Not every day needs to be a full transformation.
+            </p>
+          </div>
+
+          <button
+            id="addTaskBtn"
+            class="primary-btn"
+            type="button"
+          >
+            + Add little task
+          </button>
+
+        </div>
+
+        <div id="weeklyPlanner" class="weekly-planner"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PROFILE
+    ========================================================== -->
+    <section id="profileScreen" class="screen">
+
+      <div class="page-shell narrow-shell">
+
+        <div class="section-page-heading">
+          <span class="little-label">chapter · about you</span>
+          <h2>Your little profile.</h2>
+          <p>
+            Change anything whenever your routine changes.
+          </p>
+        </div>
+
+        <div class="profile-card-large">
+
+          <div class="profile-avatar-large" id="profileAvatar">
+            ✿
+          </div>
+
+          <h3 id="profileNameDisplay">You</h3>
+
+          <div id="profileTagDisplay" class="tag-list centered-tags"></div>
+
+          <button
+            id="editProfileBtn"
+            class="primary-btn"
+            type="button"
+          >
+            Edit my profile ✦
+          </button>
+
+          <button
+            id="clearDataBtn"
+            class="danger-text-btn"
+            type="button"
+          >
+            Start completely fresh
+          </button>
+
+        </div>
+
+
+        <div class="theme-card">
+
+          <div>
+            <span class="little-label">mood of the garden</span>
+            <h3>Choose your atmosphere</h3>
+          </div>
+
+          <div class="theme-options">
+
+            <button type="button" data-theme-choice="rose">
+              <span>🌹</span>
+              Rose
+            </button>
+
+            <button type="button" data-theme-choice="lilac">
+              <span>☾</span>
+              Lilac
+            </button>
+
+            <button type="button" data-theme-choice="sage">
+              <span>🌿</span>
+              Sage
+            </button>
+
+            <button type="button" data-theme-choice="chocolate">
+              <span>☕</span>
+              Academia
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="safety-note">
+
+          <span>♡</span>
+
+          <div>
+            <strong>A gentle reminder</strong>
+
+            <p>
+              Glow Garden is for beauty and wellness education and
+              organization. It isn't a medical diagnosis or treatment.
+              Patch-test new cosmetic ingredients, stop if something
+              irritates you, and seek professional advice for persistent
+              or severe skin/scalp concerns.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       RECIPE MODAL
+  ========================================================== -->
+  <div
+    id="recipeModal"
+    class="modal hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="recipeModalTitle"
+  >
+
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal-card">
+
+      <button
+        id="closeModalBtn"
+        class="modal-close"
+        type="button"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <div id="recipeContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       ADD TASK MODAL
+  ========================================================== -->
+  <div
+    id="taskModal"
+    class="modal hidden"
+    role="dialog"
+    aria-modal="true"
+  >
+
+    <div class="modal-backdrop" id="taskModalBackdrop"></div>
+
+    <div class="modal-card small-modal">
+
+      <button
+        id="closeTaskModalBtn"
+        class="modal-close"
+        type="button"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <span class="little-label">a tiny addition</span>
+      <h3>Add something to your week</h3>
+
+      <form id="taskForm">
+
+        <div class="form-group">
+          <label for="customTaskInput">Task</label>
+          <input
+            id="customTaskInput"
+            type="text"
+            maxlength="80"
+            placeholder="e.g. wash my makeup brushes"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+
+          <label for="customTaskDay">
+            Day
+          </label>
+
+          <select id="customTaskDay">
+
+            <option value="0">Sunday</option>
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+
+          </select>
+
+        </div>
+
+        <button class="primary-btn full-width" type="submit">
+          Add to my planner ✦
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <footer class="site-footer">
+
+    <div>
+      <strong>Glow Garden</strong>
+      <span>made for tiny rituals & softer days ✦</span>
+    </div>
+
+    <span>♡</span>
+
+  </footer>
+
+</body>
+          </html>
